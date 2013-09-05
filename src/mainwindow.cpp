@@ -7,9 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    // https://github.com/veridiam/glivestreamer
-    // http://i.imgur.com/2PD3Xrv.png
-    // http://www.reddit.com/r/linux/comments/1l32ht/glivestreamer_watch_livestreams_in_vlc_or_mplayer/
     ui->setupUi(this);
     ui->actionAbout->setText("About " + QApplication::applicationName());
 
@@ -84,7 +81,7 @@ void MainWindow::removeBookmark(int index)
 void MainWindow::onAddStreamButtonClicked()
 {
     bool ok = false;
-    QString txt = QInputDialog::getText(this, "Add Stream", "Stream URL:", QLineEdit::Normal, "http://service.tld/stream-name", &ok);
+    QString txt = QInputDialog::getText(this, "Add Stream", "Stream URL (i.e. http://twitch.tv/some-stream):", QLineEdit::Normal, "http://", &ok);
 
     if (ok && !txt.isEmpty())
     {
