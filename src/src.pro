@@ -11,6 +11,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = qlivestreamer
 TEMPLATE = app
 
+qinstall.path = $${PREFIX}/bin
+qinstall.files = qlivestreamer
+
+INSTALLS += qinstall
 
 SOURCES += main.cpp\
         mainwindow.cpp \
