@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/add.png</file>
+        <file>images/exit.png</file>
+        <file>images/log.png</file>
+        <file>images/play.png</file>
+        <file>images/qlivestreamer.png</file>
+        <file>images/qt.png</file>
+        <file>images/remove.png</file>
+        <file>images/services/dailymotion.png</file>
+        <file>images/services/justin.png</file>
+        <file>images/services/livestream.png</file>
+        <file>images/services/twitch.png</file>
+        <file>images/services/unknown.png</file>
+        <file>images/services/ustream.png</file>
+        <file>images/services/youtube.png</file>
+    </qresource>
+</RCC>

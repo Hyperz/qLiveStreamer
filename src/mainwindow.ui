@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>244</width>
+    <height>427</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>qLiveStreamer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/images/qlivestreamer.png</normaloff>:/images/qlivestreamer.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="btnAddStream">
+        <property name="toolTip">
+         <string>Add a stream to the list</string>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRemoveStream">
+        <property name="toolTip">
+         <string>Remove the selected stream from the list</string>
+        </property>
+        <property name="text">
+         <string>Remove</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTreeWidget" name="treeStreams">
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="rootIsDecorated">
+       <bool>false</bool>
+      </property>
+      <column>
+       <property name="text">
+        <string>Service</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Stream</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Options</string>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Media Player</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="cbMediaPlayer">
+         <property name="toolTip">
+          <string>The media player that should play the stream</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>vlc</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>mplayer</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Quality</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cbQuality">
+         <property name="toolTip">
+          <string>Sets the stream quality</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>best</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>worst</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Source</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>High</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Medium</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Low</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1080p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>720p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>480p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>360p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>240p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>72p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>mobile_high</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>mobile_medium</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>mobile_low</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkUseCustomMediaPlayer">
+         <property name="toolTip">
+          <string>Allows you to specify a custom media player for the stream</string>
+         </property>
+         <property name="text">
+          <string>Use Custom Media Player</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="QLineEdit" name="txtCustomMediaPlayer">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="toolTip">
+          <string>Custom media player command/path</string>
+         </property>
+         <property name="text">
+          <string>/path/to/media-player --fullscreen</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnWatchStream">
+      <property name="text">
+       <string>Watch</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>244</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionAddStream"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionViewLog"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout"/>
+    <addaction name="actionAboutQt"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionAboutQt">
+   <property name="text">
+    <string>About &amp;Qt</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About qLiveStreamer</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+  </action>
+  <action name="actionViewLog">
+   <property name="text">
+    <string>&amp;View Log</string>
+   </property>
+  </action>
+  <action name="actionAddStream">
+   <property name="text">
+    <string>&amp;Add Stream</string>
+   </property>
+   <property name="toolTip">
+    <string>Add a stream</string>
+   </property>
+  </action>
+  <action name="actionRemoveStream">
+   <property name="text">
+    <string>&amp;Remove Stream</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove the selected stream</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>chkUseCustomMediaPlayer</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txtCustomMediaPlayer</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>26</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>22</x>
+     <y>384</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkUseCustomMediaPlayer</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cbMediaPlayer</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>128</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
