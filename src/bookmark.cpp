@@ -26,12 +26,12 @@ Bookmark::Service Bookmark::service() const
 
     Qt::CaseSensitivity cs = Qt::CaseInsensitive;
 
-    if (mUrl.host().endsWith(QLatin1String("twitch.tv"), cs))       return Bookmark::Twitch;
-    if (mUrl.host().endsWith(QLatin1String("justin.tv"), cs))       return Bookmark::Justin;
-    if (mUrl.host().endsWith(QLatin1String("youtube.com"), cs))     return Bookmark::YouTube;
-    if (mUrl.host().endsWith(QLatin1String("livestream.com"), cs))  return Bookmark::Livestream;
-    if (mUrl.host().endsWith(QLatin1String("ustream.tv"), cs))      return Bookmark::UStream;
-    if (mUrl.host().endsWith(QLatin1String("dailymotion.com"), cs)) return Bookmark::Dailymotion;
+    if (mUrl.host().endsWith("twitch.tv", cs))       return Bookmark::Twitch;
+    if (mUrl.host().endsWith("justin.tv", cs))       return Bookmark::Justin;
+    if (mUrl.host().endsWith("youtube.com", cs))     return Bookmark::YouTube;
+    if (mUrl.host().endsWith("livestream.com", cs))  return Bookmark::Livestream;
+    if (mUrl.host().endsWith("ustream.tv", cs))      return Bookmark::UStream;
+    if (mUrl.host().endsWith("dailymotion.com", cs)) return Bookmark::Dailymotion;
 
     return Bookmark::Unknown;
 }
@@ -41,13 +41,13 @@ QString Bookmark::serviceName() const
 {
     switch (service())
     {
-    case Bookmark::Twitch:            return QLatin1String("Twitch.tv");
-    case Bookmark::Justin:            return QLatin1String("Justin.tv");
-    case Bookmark::YouTube:           return QLatin1String("YouTube.com");
-    case Bookmark::Livestream:        return QLatin1String("Livestream.com");
-    case Bookmark::UStream:           return QLatin1String("UStream.tv");
-    case Bookmark::Dailymotion:       return QLatin1String("Dailymotion.com");
-    case Bookmark::Unknown: default:  return QLatin1String("Unknown");
+    case Bookmark::Twitch:            return "Twitch.tv";
+    case Bookmark::Justin:            return "Justin.tv";
+    case Bookmark::YouTube:           return "YouTube.com";
+    case Bookmark::Livestream:        return "Livestream.com";
+    case Bookmark::UStream:           return "UStream.tv";
+    case Bookmark::Dailymotion:       return "Dailymotion.com";
+    case Bookmark::Unknown: default:  return "Unknown";
     }
 }
 
@@ -69,7 +69,7 @@ QIcon Bookmark::serviceIcon() const
 
 QString Bookmark::streamName() const
 {
-    if (mUrl.path().length() < 5) return QLatin1String("N/A");
+    if (mUrl.path().length() < 5) return "N/A";
 
     switch (service())
     {
@@ -79,7 +79,7 @@ QString Bookmark::streamName() const
     case Bookmark::UStream:
     {
         QStringList parts = mUrl.path().split('/');
-        return (parts.length() > 1) ? parts[1] : QLatin1String("N/A");
+        return (parts.length() > 1) ? parts[1] : "N/A";
     }
 
     case Bookmark::YouTube:
@@ -88,11 +88,11 @@ QString Bookmark::streamName() const
     case Bookmark::Dailymotion:
     {
         QStringList parts = mUrl.path().split('/');
-        return (parts.length() > 2) ? parts[2] : QLatin1String("N/A");
+        return (parts.length() > 2) ? parts[2] : "N/A";
     }
 
     default:
-        return QLatin1String("N/A");
+        return "N/A";
     }
 }
 

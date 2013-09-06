@@ -150,7 +150,7 @@ void MainWindow::onAboutActionTriggered()
 
     QString txt = format.arg(QApplication::applicationName(), QApplication::applicationVersion(), QApplication::organizationName());
 
-    QMessageBox::about(this, "About " + QApplication::applicationName(), txt);
+    QMessageBox::about(this, ui->actionAbout->text(), txt);
 }
 
 
