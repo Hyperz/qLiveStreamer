@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=qLiveStreamer
+Comment=Qt4 GUI frontend for livestreamer
+Exec=qlivestreamer
+Icon=/usr/share/qlivestreamer/qlivestreamer.png
+Terminal=false
+Categories=AudioVideo;Video;
