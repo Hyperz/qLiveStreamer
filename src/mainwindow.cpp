@@ -159,6 +159,22 @@ void MainWindow::onAboutQtActionTriggered()
     QMessageBox::aboutQt(this);
 }
 
+void MainWindow::onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
+{
+    Q_UNUSED(exitStatus);
+
+    QProcess *process = (QProcess *)sender();
+
+    if (exitCode != EXIT_SUCCESS)
+    {
+        QString processOutput = process->readAll();
+        QMessageBox::critical(this, "Livestreamer error", "Livestreamer output:\n\n" +
+                              processOutput);
+    }
+
+    process->deleteLater();
+}
+
 
 void MainWindow::loadSettings()
 {
@@ -205,6 +221,10 @@ void MainWindow::watchStream(const Bookmark &stream, const QString &player, cons
 {
     QStringList args;
     args << stream.url().toString() << quality << "--player" << player;
-    QProcess::startDetached("livestreamer", args);
+
+    QProcess *livestreamerProcess = new QProcess(this);
+    connect(livestreamerProcess, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(onProcessFinished(int,QProcess::ExitStatus)));
+
+    livestreamerProcess->start("livestreamer", args);
 }
 
