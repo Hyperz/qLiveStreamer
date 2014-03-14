@@ -93,6 +93,9 @@
        <string>Options</string>
       </property>
       <layout class="QFormLayout" name="formLayout">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
@@ -117,14 +120,37 @@
          </item>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="1" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkUseCustomMediaPlayer">
+         <property name="toolTip">
+          <string>Allows you to specify a custom media player for the stream</string>
+         </property>
+         <property name="text">
+          <string>Use Custom Media Player</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" colspan="2">
+        <widget class="QLineEdit" name="txtCustomMediaPlayer">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="toolTip">
+          <string>Custom media player command/path</string>
+         </property>
+         <property name="text">
+          <string>/path/to/media-player --fullscreen</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
           <string>Quality</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
+       <item row="4" column="1">
         <widget class="QComboBox" name="cbQuality">
          <property name="toolTip">
           <string>Sets the stream quality</string>
@@ -196,26 +222,17 @@
          </item>
         </widget>
        </item>
-       <item row="2" column="0" colspan="2">
-        <widget class="QCheckBox" name="chkUseCustomMediaPlayer">
-         <property name="toolTip">
-          <string>Allows you to specify a custom media player for the stream</string>
-         </property>
+       <item row="5" column="0" colspan="2">
+        <widget class="QCheckBox" name="chkUseCustomQuality">
          <property name="text">
-          <string>Use Custom Media Player</string>
+          <string>Use Custom Quality</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0" colspan="2">
-        <widget class="QLineEdit" name="txtCustomMediaPlayer">
+       <item row="6" column="0" colspan="2">
+        <widget class="QLineEdit" name="txtCustomQuality">
          <property name="enabled">
           <bool>false</bool>
-         </property>
-         <property name="toolTip">
-          <string>Custom media player command/path</string>
-         </property>
-         <property name="text">
-          <string>/path/to/media-player --fullscreen</string>
          </property>
         </widget>
        </item>
@@ -302,12 +319,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>26</x>
-     <y>357</y>
+     <x>488</x>
+     <y>113</y>
     </hint>
     <hint type="destinationlabel">
-     <x>22</x>
-     <y>384</y>
+     <x>484</x>
+     <y>146</y>
     </hint>
    </hints>
   </connection>
@@ -318,12 +335,44 @@
    <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>123</x>
-     <y>356</y>
+     <x>585</x>
+     <y>113</y>
     </hint>
     <hint type="destinationlabel">
-     <x>128</x>
-     <y>310</y>
+     <x>664</x>
+     <y>85</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkUseCustomQuality</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>cbQuality</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>561</x>
+     <y>208</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>593</x>
+     <y>186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chkUseCustomQuality</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>txtCustomQuality</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>209</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>551</x>
+     <y>236</y>
     </hint>
    </hints>
   </connection>

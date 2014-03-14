@@ -123,7 +123,7 @@ void MainWindow::onWatchStreamButtonClicked()
     QModelIndexList indexes = ui->treeStreams->selectionModel()->selectedRows();
 
     QString player = (ui->chkUseCustomMediaPlayer->isChecked()) ? ui->txtCustomMediaPlayer->text() : ui->cbMediaPlayer->currentText();
-    QString quality = ui->cbQuality->currentText();
+    QString quality = (ui->chkUseCustomQuality->isChecked()) ? ui->txtCustomQuality->text() : ui->cbQuality->currentText();
 
     foreach (QModelIndex index, indexes)
     {
@@ -183,14 +183,20 @@ void MainWindow::loadSettings()
     QString quality = settings.value("Quality", "best").toString();
     bool useCustomMediaPlayer = settings.value("UseCustomMediaPlayer", false).toBool();
     QString customMediaPlayer = settings.value("CustomMediaPlayer", "/path/to/media-player --fullscreen").toString();
+    bool useCustomQuality = settings.value("UseCustomQuality", false).toBool();
+    QString customQuality = settings.value("CustomQuality", "").toString();
     QStringList bookmarks = settings.value("Bookmarks").toStringList();
     
     ui->cbMediaPlayer->setEnabled(!useCustomMediaPlayer);
     ui->cbMediaPlayer->setCurrentIndex(ui->cbMediaPlayer->findText(mediaPlayer));
+    ui->cbQuality->setEnabled(!useCustomQuality);
     ui->cbQuality->setCurrentIndex(ui->cbQuality->findText(quality));
     ui->chkUseCustomMediaPlayer->setChecked(useCustomMediaPlayer);
+    ui->chkUseCustomQuality->setChecked(useCustomQuality);
     ui->txtCustomMediaPlayer->setEnabled(useCustomMediaPlayer);
     ui->txtCustomMediaPlayer->setText(customMediaPlayer);
+    ui->txtCustomQuality->setEnabled(useCustomQuality);
+    ui->txtCustomQuality->setText(customQuality);
 
     mBookmarks.clear();
     ui->treeStreams->clear();
@@ -208,6 +214,8 @@ void MainWindow::saveSettings()
     settings.setValue("Quality", ui->cbQuality->currentText());
     settings.setValue("UseCustomMediaPlayer", ui->chkUseCustomMediaPlayer->isChecked());
     settings.setValue("CustomMediaPlayer", ui->txtCustomMediaPlayer->text());
+    settings.setValue("UseCustomQuality", ui->chkUseCustomQuality->isChecked());
+    settings.setValue("CustomQuality", ui->txtCustomQuality->text());
 
     QStringList bookmarks;
     foreach (Bookmark bookmark, mBookmarks)
