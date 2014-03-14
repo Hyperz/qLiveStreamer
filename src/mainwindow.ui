@@ -164,6 +164,36 @@
            <string>mobile</string>
           </property>
          </item>
+         <item>
+          <property name="text">
+           <string>1080p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>720p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>480p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>360p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>240p</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>72p</string>
+          </property>
+         </item>
         </widget>
        </item>
        <item row="2" column="0" colspan="2">
