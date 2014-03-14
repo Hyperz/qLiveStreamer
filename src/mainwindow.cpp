@@ -138,6 +138,7 @@ void MainWindow::onWatchStreamButtonClicked()
 void MainWindow::onViewLogActionTriggered()
 {
     // TODO: implement
+    QMessageBox::information(this, "Not implemented", "This feature is not implemented yet.");
 }
 
 
