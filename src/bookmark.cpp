@@ -74,8 +74,6 @@ QIcon Bookmark::serviceIcon() const
 
 QString Bookmark::streamName() const
 {
-    if (mUrl.path().length() < 5) return "N/A";
-
     switch (service())
     {
     case Bookmark::Twitch:
@@ -88,7 +86,10 @@ QString Bookmark::streamName() const
     }
 
     case Bookmark::YouTube:
-        return mUrl.queryItemValue("v");
+    {
+        QString videoID = mUrl.queryItemValue("v");
+        return (!videoID.isEmpty()) ? videoID : "N/A";
+    }
 
     case Bookmark::Dailymotion:
     case Bookmark::MLGTV:
