@@ -74,6 +74,8 @@ QIcon Bookmark::serviceIcon() const
 
 QString Bookmark::streamName() const
 {
+    if (mUrl.path().length() < 2) return "N/A";
+
     switch (service())
     {
     case Bookmark::Twitch:
