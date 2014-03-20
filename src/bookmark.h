@@ -16,7 +16,8 @@ public:
         YouTube,
         Livestream,
         UStream,
-        Dailymotion
+        Dailymotion,
+        MLGTV
     };
 
     Bookmark(const QUrl &url);

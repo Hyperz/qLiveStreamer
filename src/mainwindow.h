@@ -30,6 +30,7 @@ protected slots:
     void onViewLogActionTriggered();
     void onAboutActionTriggered();
     void onAboutQtActionTriggered();
+    void onProcessFinished(int exitCode, QProcess::ExitStatus exitStatus);
 
     void loadSettings();
     void saveSettings();

@@ -14,5 +14,6 @@
         <file>images/services/unknown.png</file>
         <file>images/services/ustream.png</file>
         <file>images/services/youtube.png</file>
+        <file>images/services/mlgtv.png</file>
     </qresource>
 </RCC>
