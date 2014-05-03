@@ -1,4 +1,6 @@
-
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+#include <QUrlQuery>
+#endif
 #include "bookmark.h"
 
 
@@ -82,8 +84,14 @@ QString Bookmark::streamName() const
         return (parts.length() > 1) ? parts[1] : "N/A";
     }
 
-    case Bookmark::YouTube:
+    case Bookmark::YouTube: {
+#if QT_VERSION >= QT_VERSION_CHECK(5,0,0)
+        QUrlQuery q(mUrl.query());
+        return q.queryItemValue("v");
+#else
         return mUrl.queryItemValue("v");
+#endif
+    }
 
     case Bookmark::Dailymotion:
     {

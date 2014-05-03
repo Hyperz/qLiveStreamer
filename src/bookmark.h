@@ -4,7 +4,6 @@
 #include <QtCore>
 #include <QIcon>
 
-
 class Bookmark
 {
 public:
