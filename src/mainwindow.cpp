@@ -1,4 +1,6 @@
 
+#include <QInputDialog>
+#include <QMessageBox>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -85,7 +87,7 @@ void MainWindow::onAddStreamButtonClicked()
 
     if (ok && !txt.isEmpty())
     {
-        Bookmark newBookmark = Bookmark(QUrl(txt));
+        Bookmark newBookmark = Bookmark(QUrl().fromUserInput(txt));
 
         if (newBookmark.service() == Bookmark::Unknown)
         {
