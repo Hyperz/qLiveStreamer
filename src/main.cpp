@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     QApplication::setOrganizationName("Hyperz");
     QApplication::setApplicationName("qLiveStreamer");
-    QApplication::setApplicationVersion("0.1.1");
+    QApplication::setApplicationVersion("0.1.2");
 
     MainWindow w;
     w.show();
